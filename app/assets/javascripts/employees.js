@@ -1,3 +1,10 @@
+Vue.component('employee-row', {
+  template: '#employee-row',
+  props: {
+    employee: Object
+  }
+})
+
 var employees = new Vue({
   el: '#employees',
   data: {
