@@ -34,9 +34,33 @@
 </div>
 
 <script type="text/x-template" id="employee-row">
-  <tr>
+  <tr v-if="editMode">
+    <td>
+      <div>
+        <input type="text" v-model="employee.name"><br>
+        <span style="color:red">{{ errors.name }}</span>
+      </div>
+    </td>
+    <td>
+      <div>
+        <input type="text" v-model="employee.email"><br>
+        <span style="color:red">{{ errors.email }}</span>
+      </div>
+    </td>
+    <td>
+      <div>
+        <input type="checkbox" v-model="employee.manager">
+      </div>
+    </td>
+    <td>
+      <button @click="updateEmployee">Save</button>
+    </td>
+  </tr>
+  <tr v-else>
     <td>{{ employee.name }}</td>
     <td>{{ employee.email }}</td>
     <td>{{ employee.manager }}</td>
+    <button @click="editMode = true">Edit</button>
+    <button @click="toggleManagerStatus">{{ employee.manager ? 'Demote' : 'Promote' }}</button>
   </tr>
 </script>
