@@ -62,5 +62,6 @@
     <td>{{ employee.manager }}</td>
     <button @click="editMode = true">Edit</button>
     <button @click="toggleManagerStatus">{{ employee.manager ? 'Demote' : 'Promote' }}</button>
+    <button @click="fireEmployee" style="color:red">Fire</button>
   </tr>
 </script>

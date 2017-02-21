@@ -33,6 +33,17 @@ Vue.component('employee-row', {
           that.errors = res.responseJSON.errors
         }
       })
+    },
+    fireEmployee: function () {
+      var that = this;
+      $.ajax({
+        method: 'DELETE',
+        url: '/employees/' + that.employee.id + '.json',
+        success: function(res) {
+          let index = employees.employees.indexOf(that.employee)
+          employees.employees.splice(index, 1);
+        }
+      })
     }
   }
 })
